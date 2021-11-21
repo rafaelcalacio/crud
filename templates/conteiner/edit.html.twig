@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Conteiner{% endblock %}
+
+{% block body %}
+    <h1>Edit Conteiner</h1>
+
+    {{ include('conteiner/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('conteiner_index') }}">back to list</a>
+
+    {{ include('conteiner/_delete_form.html.twig') }}
+{% endblock %}

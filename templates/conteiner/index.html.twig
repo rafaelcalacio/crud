@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conteiner index{% endblock %}
+
+{% block body %}
+    <h1>Conteiner index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Category</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conteiner in conteiners %}
+            <tr>
+                <td>{{ conteiner.id }}</td>
+                <td>{{ conteiner.number }}</td>
+                <td>{{ conteiner.type }}</td>
+                <td>{{ conteiner.status }}</td>
+                <td>{{ conteiner.category }}</td>
+                <td>
+                    <a href="{{ path('conteiner_show', {'id': conteiner.id}) }}">show</a>
+                    <a href="{{ path('conteiner_edit', {'id': conteiner.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('conteiner_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ConteinerMovimentacoes index{% endblock %}
+
+{% block body %}
+    <h1>ConteinerMovimentacoes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Movimentações</th>
+                <th>Dt_inicio</th>
+                <th>Dt_fim</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conteiner_movimentaco in conteiner_movimentacoes %}
+            <tr>
+                <td>{{ conteiner_movimentaco.id }}</td>
+                <td>{{ conteiner_movimentaco.movementType }}</td>
+                <td>{{ conteiner_movimentaco.dtInicio ? conteiner_movimentaco.dtInicio|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ conteiner_movimentaco.dtFim ? conteiner_movimentaco.dtFim|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('conteiner_movimentacoes_show', {'id': conteiner_movimentaco.id}) }}">show</a>
+                    <a href="{{ path('conteiner_movimentacoes_edit', {'id': conteiner_movimentaco.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('conteiner_movimentacoes_new') }}">Create new</a>
+{% endblock %}

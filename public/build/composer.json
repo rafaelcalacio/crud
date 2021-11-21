@@ -1,0 +1,6 @@
+{
+    "require": {
+        "symfony/webpack-encore-bundle": "^1.13",
+        "symfony/form": "^5.3"
+    }
+}

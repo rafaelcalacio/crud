@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ConteinerMovimentacoes{% endblock %}
+
+{% block body %}
+    <h1>Create new ConteinerMovimentacoes</h1>
+
+    {{ include('conteiner_movimentacoes/_form.html.twig') }}
+
+    <a href="{{ path('conteiner_movimentacoes_index') }}">back to list</a>
+{% endblock %}
